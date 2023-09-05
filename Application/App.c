@@ -15,8 +15,6 @@
             Hazzem Mohamed Ezzeldin (1297)
             Yousef Khaled Ahmed (558)
 ================================================================
-     Description: This file contains the main application logic and
-     functions for controlling alarms and user interactions.
 ================================================================
                         FILE NAME: App.c
 ================================================================*/
