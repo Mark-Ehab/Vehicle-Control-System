@@ -7,10 +7,12 @@
 #ifndef SPI_PRIVATE_H_
 #define SPI_PRIVATE_H_
 
-#define       SPCR       (*((volatile uint8 *)(0x2D)))
-#define       SPSR       (*((volatile uint8 *)(0x2E)))
-#define       SPDR       (*((volatile uint8 *)(0x2F)))
+/* registers addresses: */
+#define       SPCR       (*((volatile uint8 *)(0x2D)))/* control register */
+#define       SPSR       (*((volatile uint8 *)(0x2E)))/* status register */
+#define       SPDR       (*((volatile uint8 *)(0x2F)))/* data register */
 
+/* control registers bits: */
 typedef enum{
     SPCR_SPR0,
     SPCR_SPR1,
@@ -22,6 +24,7 @@ typedef enum{
     SPCR_SPIE
 } SPCR_REG;
 
+/* status registers bits: */
 typedef enum{
     SPSR_SPI2X,
     SPSR_WCOL = 6,
