@@ -51,38 +51,22 @@ void KeyPad_Init(void)
 uint8 GetPresseKey(void)
 {
     uint8 i, j, val;
-    if (g_alarmHasFired == TRUE)
-    {
-        g_alarmHasFired = FALSE;
-        alarmAction();
-    }
+
     while (1)
     {
         /* Iterate through rows */
-        if (g_alarmHasFired == TRUE)
-        {
-            g_alarmHasFired = FALSE;
-            alarmAction();
-        }
+
         for (i = 0; i < 4; i++)
         {
             /* Set the current row to logic low */
             DIO_setupPinDirection(KEYPAD_ROW_PORT, ArrOfRows[i], PIN_OUTPUT);
             DIO_writePin(KEYPAD_ROW_PORT, ArrOfRows[i], LOGIC_LOW);
-            if (g_alarmHasFired == TRUE)
-            {
-                g_alarmHasFired = FALSE;
-                alarmAction();
-            }
+
             /* Check columns for a pressed key */
             for (j = 0; j < 4; j++)
             {
                 val = DIO_readPin(KEYPAD_COLUMN_PORT, ArrOfCols[j]);
-                if (g_alarmHasFired == TRUE)
-                {
-                    g_alarmHasFired = FALSE;
-                    alarmAction();
-                }
+
                 if (val == 0)
                 {
                     _delay_ms(50); // Small delay to debounce the key press
@@ -94,23 +78,14 @@ uint8 GetPresseKey(void)
                     DIO_setupPinDirection(KEYPAD_ROW_PORT, ArrOfRows[i],
                                           PIN_INPUT);
                     DIO_writePin(KEYPAD_ROW_PORT, ArrOfRows[i], LOGIC_HIGH);
-                    if (g_alarmHasFired == TRUE)
-                    {
-                        g_alarmHasFired = FALSE;
-                        alarmAction();
-                    }
+
                     return (KeyPad_Values[i][j]);
                 }
             }
-            if (g_alarmHasFired == TRUE)
-            {
-                g_alarmHasFired = FALSE;
-                alarmAction();
-            }
+
             /* Restore row configuration */
             DIO_setupPinDirection(KEYPAD_ROW_PORT, ArrOfRows[i], PIN_INPUT);
             DIO_writePin(KEYPAD_ROW_PORT, ArrOfRows[i], LOGIC_HIGH);
         }
     }
 }
-
