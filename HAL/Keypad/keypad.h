@@ -40,7 +40,4 @@ void KeyPad_Init(void);
  */
 uint8 GetPresseKey(void);
 
-extern volatile uint8 g_alarmHasFired;
-STATUS alarmAction(void);
-
 #endif /* KEYPAD_H_ */
