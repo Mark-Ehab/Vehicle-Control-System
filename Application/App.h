@@ -15,9 +15,7 @@
  Hazzem Mohamed Ezzeldin (1297)
  Yousef Khaled Ahmed (558)
  ================================================================
- Description: This header file contains the declarations and
- function prototypes for the main application logic and functions
- responsible for controlling alarms and user interactions.
+
  ================================================================
  FILE NAME: App.h
  ================================================================*/
