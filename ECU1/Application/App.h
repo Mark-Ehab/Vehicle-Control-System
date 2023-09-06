@@ -76,7 +76,7 @@ typedef struct
  * @brief Initializes the application by initializing various drivers
  *  and components.
  *
- * This function initializes the LCD, keypad, LDR, buzzer, LED, and timers.
+ * This function initializes the LCD, keypad and external interrupts.
  */
 void App_Init(void);
 
