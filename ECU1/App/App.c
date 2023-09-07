@@ -238,12 +238,15 @@ void UpdateSpeed(void)
 	/*Check if the speed limit is on*/
 	if (speedLimitOn == SPEED_LIMIT_ON && dashboard.gear == DRIVE) 
 	{
+		/* SPI: updating the limitSpeed with the value that is saved in the  *
+                 *      slave ECU.                                                   */
+		dashboard.limitSpeed = getDataFromSlaveECU();
+		
 		/*Limit the speed to the maximum allowed speed*/
 		if (dashboard.speed < MAX_ALLOWED_SPEED) 
 		{
 			dashboard.speed = speedBuffer;
 
-			/* SPI */
 		}
 	} 
 	else if (dashboard.gear == DRIVE && speedLimitOn == SPEED_LIMIT_OFF) 
