@@ -15,7 +15,9 @@
  Hazzem Mohamed Ezzeldin (1297)
  Yousef Khaled Ahmed (558)
  ================================================================
-
+ Description: This header file contains the declarations and
+ function prototypes for the main application logic and functions
+ responsible for controlling alarms and user interactions.
  ================================================================
  FILE NAME: App.h
  ================================================================*/
@@ -27,56 +29,39 @@
 #include "App_Cfg.h"
 #include "../RTE/rte.h"
 
+/* Define initial values for the dashboard */
+#define INITIAL_SPEED 0
+#define INITIAL_GEAR PARK
+#define MAX_ALLOWED_SPEED 120
 
-#define PARK_GEAR            'P'
+#define SPEED_LIMIT_BUTTON_COLUMN  1
+#define SPEED_LIMIT_BUTTON_ROW     1 
+#define SPEED_LIMIT_ON 1
+#define SPEED_LIMIT_OFF 0
+#define REVERSE_SPEED_LIMIT 40
+typedef enum {
+	PARK,
+	REVERSE,
+	NEUTRAL,
+	DRIVE
+} Gear;
 
-
-#define NEUTRAL_GEAR         'N'
-
-
-#define DRIVE_GEAR           'D'
-
-
-#define REVERSE_GEAR         'R'
-
-/* Return value indicating continuation */
-#define CONTINUE 0
-
-/* Return value indicating cancelled operation*/
-#define CANCELLED 0
-
-/* Return value indicating exit operation*/
-#define EXIT       2
-
-/* Return value indicating confirmed operation*/
-#define CONFIRMED 1
-
-/* Return value indicating error in operation*/
-#define ERR_STATE   8
-
-/* Return value indicating return to main menu operation*/
-#define RETURN_TO_MAIN_MENU 0
-
-#define INTIAL_SPEED            0
-
-#define INTIAL_MAX_SPEED        100
-
-#define INTIAL_GEAR             'P'
-
-/* Structure for alarm configuration */
-typedef struct
-{
-    uint8 speed;
-    uint8 gear;
-    uint8 maxSpeed;
-} dashboard_t;
+/*==================================================================
+							Function prototypes
+ ==================================================================*/
+void DisplayDashboard(void);
+void gearForward_Polling(void);
+void gearReverse_Polling(void);
+void UpdateDashboardGear(void);
+char GearToChar(Gear gear);
+void UpdateSpeed(void);
 
 /*==================================================================*/
 /**
  * @brief Initializes the application by initializing various drivers
  *  and components.
  *
- * This function initializes the LCD, keypad and external interrupts.
+ * This function initializes the LCD, keypad, LDR, buzzer, LED, and timers.
  */
 void App_Init(void);
 

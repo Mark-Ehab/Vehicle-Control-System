@@ -38,6 +38,8 @@ void App_saveOrGet(void){
 		/* sending the data that is read from the EEPROM through *
 		 * SPI to the master ECU.                                */
 		RTE_COM_send(receiveBuffer);
+	} else{
+		/* do nothing */
 	}
 }
 

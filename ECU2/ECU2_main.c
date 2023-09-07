@@ -2,8 +2,8 @@
  * metaWare
  * @return
  */
+#include "App/application.h"
 #include "Commons/std_types.h"
-#include "APP/application.h"
 
 int main(){
 	/* initializing the application */

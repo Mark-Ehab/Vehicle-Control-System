@@ -35,6 +35,8 @@ typedef unsigned char boolean;
 #define LOGIC_LOW        (0u)
 #define RT_OK			 (1u)
 #define RT_NOK			 (0u)	
+#define STD_ON           (1u)
+#define STD_OFF          (0u)
 
 #define NULL 0
 #define NULL_PTR				 0		

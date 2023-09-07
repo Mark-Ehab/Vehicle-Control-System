@@ -13441,6 +13441,8 @@ _delay_ms(double __ms)
 		RTE_COM_send(receiveBuffer);
     52c0:	8e 8d       	ldd	r24, Y+30	; 0x1e
     52c2:	0e 94 79 25 	call	0x4af2	; 0x4af2 <COM_send>
+	} else{
+		/* do nothing */
 	}
 }
     52c6:	6e 96       	adiw	r28, 0x1e	; 30
@@ -13456,8 +13458,8 @@ _delay_ms(double __ms)
 000052d8 <main>:
  * @return
  */
+#include "App/application.h"
 #include "Commons/std_types.h"
-#include "APP/application.h"
 
 int main(){
     52d8:	df 93       	push	r29

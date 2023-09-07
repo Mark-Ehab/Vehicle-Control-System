@@ -23,5 +23,7 @@
 #define CLEAR_BIT(REG,BIT)  (((REG)&= ~(1 << BIT)))
 #define TOGGLE_BIT(REG,BIT) (((REG) ^= (1 << BIT)))
 #define GET_BIT(REG,BIT)    ((((REG & (1<<BIT)) >> BIT)))
+#define BIT_IS_SET(REG , BIT_NUM) (REG & (1<<BIT_NUM))
+#define BIT_IS_CLEAR(REG , BIT_NUM) (!(REG &(1<<BIT_NUM)))
 
 #endif /* MACROS_H_ */

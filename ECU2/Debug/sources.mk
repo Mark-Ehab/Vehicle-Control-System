@@ -20,7 +20,7 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-APP \
+App \
 Commons \
 . \
 HAL/BUZZER \

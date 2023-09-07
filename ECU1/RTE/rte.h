@@ -31,10 +31,18 @@
 #include "../MCAL/Timer0/Timer0.h"
 #include "../MCAL/Interrupt/atmega32_Interrupts.h"
 #include "../MCAL/Timer1/Timer1.h"
+#include "../MCAL/ADC/Adc.h"
+#include "../HAL/COM/com.h"
+
 
 /* Keypad Module RTE Services */
-#define RTE_KEYPAD_init				 	    KeyPad_Init
+#define RTE_KEYPAD_init				 		KeyPad_Init
 #define RTE_KEYPAD_getPressedKey 			GetPresseKey
+
+#define RTE_ADC_Init 						ADC_Init
+#define RTE_ADC_readChannel_polling 		ADC_readChannel_polling
+#define RTE_ADC_readChannel_interrupt		ADC_readChannel_interrupt
+#define RTE_ADC_DeInit						ADC_DeInit
 
 /* Character LCD Module RTE Services */
 #define RTE_LCD_init 					    LCD_init
@@ -44,7 +52,7 @@
 #define RTE_LCD_clearScreen 				LCD_clearScreen
 #define RTE_LCD_moveCursor			        LCD_moveCursor
 #define RTE_LCD_displayIntegerRowColumn     LCD_displayIntegerRowColumn
-
+#define RTE_LCD_clearLine						ClearLCDRow
 /* LDR Module RTE Services */
 #define RTE_LDR_vidLDRInit                              LDR_vidLDRInit
 #define RTE_LDR_u16GetLDRReadingSync                    LDR_u16GetLDRReadingSync
@@ -114,6 +122,9 @@
 #define RTE_TIMER1_uint8StartPWMChannelA               TIMER1_uint8StartPWMChannelA
 #define RTE_TIMER1_uint8StartPWMChannelB               TIMER1_uint8StartPWMChannelB
 
-
+#define RTE_COM_slaveInit                              COM_slaveInit
+#define RTE_COM_masterInit                             COM_masterInit
+#define RTE_COM_send                                   COM_send
+#define RTE_COM_receive                                COM_receive
 
 #endif /* RTE_H_ */

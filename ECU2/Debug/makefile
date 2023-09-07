@@ -23,7 +23,7 @@ RM := rm -rf
 -include HAL/Button/subdir.mk
 -include HAL/BUZZER/subdir.mk
 -include Commons/subdir.mk
--include APP/subdir.mk
+-include App/subdir.mk
 -include subdir.mk
 -include objects.mk
 
