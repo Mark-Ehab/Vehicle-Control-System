@@ -57,12 +57,12 @@ volatile uint8 reverseButtonPressed = 0;
  */
 void saveDataInSlaveECU(uint8 data){
 	/* sending an indication that it's required to save some data */
-	COM_send(SAVE);
+	RTE_COM_send(SAVE);
 	/* waiting to assure that the slave ECU is ready to receive the  *
 	 * data that will be saved in the EEPROM                         */
 	_delay_ms(100);
 	/* sending the data that should be saved in the EEPROM */
-	COM_send(data);
+	RTE_COM_send(data);
 	/* waiting till the data is saved in the EEPROM */
 	_delay_ms(100);
 }
@@ -76,11 +76,11 @@ uint8 getDataFromSlaveECU(void){
 	uint8 receiveBuffer = NULL;
 	/* sending a value to the slave ECU which indicates that we  *
 	 * want to get the data that is saved in the EEPROM          */
-	COM_send(GET);
+	RTE_COM_send(GET);
 	/* waiting till the slave ECU prepares the data */
 	_delay_ms(100);
 	/* receiving the data from the slave ECU */
-	receiveBuffer = COM_receive();
+	receiveBuffer = RTE_COM_receive();
 	/* returning this data */
 	return receiveBuffer;
 }
