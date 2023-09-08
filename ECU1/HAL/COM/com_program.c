@@ -6,7 +6,7 @@
  */
 
 #include "../../Commons/std_types.h"
-#include "../../HAL/EEPROM/EEPROM_Interface.h"
+//#include "../../HAL/EEPROM/EEPROM_Interface.h"
 #include "../../MCAL/DIO/atmega32_DIO.h"
 
 #include "../../MCAL/SPI/SPI_interface.h"
@@ -17,27 +17,27 @@
 
 #include <util/delay.h>
 
-/***********************************************************
- * Service name: COM_slaveInit
- * Parameters in: None
- * Parameters out: None
- * Parameters in/out: None
- * Return: void
- * Description: this function enables the slave node.
- ***********************************************************/
-void COM_slaveInit(void){
-/* initializations: */
-	/* initializing pins direction */
-	DIO_setupPinDirection(PORTB_ID , PIN4_ID , PIN_INPUT);  /* Slave select */
-	DIO_setupPinDirection(PORTB_ID , PIN5_ID , PIN_INPUT);  /* MOSI  */
-	DIO_setupPinDirection(PORTB_ID , PIN6_ID , PIN_OUTPUT); /* MISO  */
-	DIO_setupPinDirection(PORTB_ID , PIN7_ID , PIN_INPUT);  /* Clock */
-	/* SPI initialization*/
-	SPI_slaveInit();
-
-	/* Initialize EEPROM */
-	EEPROM_vidInit();
-}
+///***********************************************************
+// * Service name: COM_slaveInit
+// * Parameters in: None
+// * Parameters out: None
+// * Parameters in/out: None
+// * Return: void
+// * Description: this function enables the slave node.
+// ***********************************************************/
+//void COM_slaveInit(void){
+///* initializations: */
+//	/* initializing pins direction */
+//	DIO_setupPinDirection(PORTB_ID , PIN4_ID , PIN_INPUT);  /* Slave select */
+//	DIO_setupPinDirection(PORTB_ID , PIN5_ID , PIN_INPUT);  /* MOSI  */
+//	DIO_setupPinDirection(PORTB_ID , PIN6_ID , PIN_OUTPUT); /* MISO  */
+//	DIO_setupPinDirection(PORTB_ID , PIN7_ID , PIN_INPUT);  /* Clock */
+//	/* SPI initialization*/
+//	SPI_slaveInit();
+//
+//	/* Initialize EEPROM */
+//	EEPROM_vidInit();
+//}
 
 
 /***********************************************************
